@@ -137,3 +137,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#Large files and folders
+Deep_learning/notMNIST_large.tar.gz
+Deep_learning/notMNIST_small.tar.gz
+Deep_learning/notMNIST.pickle
+Deep_learning/notMNIST_large/
+Deep_learning/notMNIST_small/
