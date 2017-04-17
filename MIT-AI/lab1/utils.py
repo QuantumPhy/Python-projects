@@ -22,7 +22,7 @@ class NoClobberDict(DictMixin):
 
     def __setitem__(self, key, value):
         if self._dict.has_key(key) and self._dict[key] != value:
-            raise ClobberedDictKey, (key, value)
+            raise ClobberedDictKey(key, value)
 
         self._dict[key] = value
 
