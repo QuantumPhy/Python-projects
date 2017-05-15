@@ -144,6 +144,6 @@ Deep_learning/notMNIST_small.tar.gz
 Deep_learning/notMNIST.pickle
 Deep_learning/notMNIST_large/
 Deep_learning/notMNIST_small/
-chatbot/notebooks/data/glove.6B.100d.txt
-chatbot/notebooks/data/train.csv
-chatbot/notebooks/data/train.tfrecords
+chatbot/data/glove.6B.100d.txt
+chatbot/data/train.csv
+chatbot/data/train.tfrecords
