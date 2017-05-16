@@ -147,3 +147,4 @@ Deep_learning/notMNIST_small/
 chatbot/data/glove.6B.100d.txt
 chatbot/data/train.csv
 chatbot/data/train.tfrecords
+tensorflow_chatbot-master_env0.12/working_dir/
