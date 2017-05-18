@@ -144,7 +144,5 @@ Deep_learning/notMNIST_small.tar.gz
 Deep_learning/notMNIST.pickle
 Deep_learning/notMNIST_large/
 Deep_learning/notMNIST_small/
-chatbot/data/glove.6B.100d.txt
-chatbot/data/train.csv
-chatbot/data/train.tfrecords
-tensorflow_chatbot-master_env0.12/working_dir/
+seq2seq_chatbot_projects/chatbot/data/
+seq2seq_chatbot_projects/tensorflow_chatbot-master_env0.12/working_dir/
