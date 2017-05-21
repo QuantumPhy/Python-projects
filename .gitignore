@@ -146,3 +146,8 @@ Deep_learning/notMNIST_large/
 Deep_learning/notMNIST_small/
 seq2seq_chatbot_projects/chatbot/data/
 seq2seq_chatbot_projects/tensorflow_chatbot-master_env0.12/working_dir/
+tensorflow_flower_codelab/
+seq2seq_chatbot_projects/practical_seq2seq-master/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq-master/datasets/twitter/chat.txt
+seq2seq_chatbot_projects/practical_seq2seq-master_test/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq-master_test/datasets/twitter/chat.txt
