@@ -42,8 +42,8 @@ class Seq2Seq(object):
             self.dec_ip = [ tf.zeros_like(self.enc_ip[0], dtype=tf.int64, name='GO') ] + self.labels[:-1]
             
             # output projection
-            W_out=tf.Variable(tf.truncated_normal([num_units, yvocab_size], -0.1, 0.1))
-            B_out=tf.Variable(tf.zeros([yvocab_size]))
+            #W_out=tf.Variable(tf.truncated_normal([num_units, yvocab_size], -0.1, 0.1))
+            #B_out=tf.Variable(tf.zeros([yvocab_size]))
 
             # Basic LSTM cell wrapped in Dropout Wrapper
             self.keep_prob = tf.placeholder(tf.float32)
@@ -60,21 +60,21 @@ class Seq2Seq(object):
             with tf.variable_scope('decoder') as scope:
                 # build the seq2seq model 
                 #  inputs : encoder, decoder inputs, LSTM cell type, vocabulary sizes, embedding dimensions
-                self.decode_outputs, self.decode_states = tf.contrib.legacy_seq2seq.embedding_attention_seq2seq(
+                self.decode_outputs, self.decode_states = tf.contrib.legacy_seq2seq.embedding_rnn_seq2seq(
                                                             self.enc_ip,self.dec_ip, stacked_lstm,
-                                                            xvocab_size, yvocab_size, emb_dim,num_heads,(self.W_out,self.B_out))
+                                                            xvocab_size, yvocab_size, emb_dim)
                 # share parameters
                 scope.reuse_variables()
                 # testing model, where output of previous timestep is fed as input 
                 #  to the next timestep
-                self.decode_outputs_test, self.decode_states_test = tf.contrib.legacy_seq2seq.embedding_attention_seq2seq(
-                                                                   self.enc_ip,self.dec_ip, stacked_lstm,xvocab_size, yvocab_size,                                                                            emb_dim,num_heads,(self.W_out,self.B_out),feed_previous=True)
+                self.decode_outputs_test, self.decode_states_test = tf.contrib.legacy_seq2seq.embedding_rnn_seq2seq(
+                                                                   self.enc_ip,self.dec_ip, stacked_lstm,xvocab_size, yvocab_size,                                                                            emb_dim,feed_previous=True)
             # now, for training,
             #  build loss function
 
             # weighted loss
             #  TODO : add parameter hint
-            loss_weights = [tf.Variable(tf.truncated_normal([batch_size], -0.1, 0.1),name='lw_{}'.format(t)) for t in range(yseq_len)]
+            loss_weights = [ tf.ones_like(label, dtype=tf.float32) for label in self.labels ]
             self.loss = tf.contrib.legacy_seq2seq.sequence_loss(self.decode_outputs, self.labels, loss_weights)
             # train op to minimize the loss
             self.lr=min_lr+(max_lr-min_lr)*tf.exp(-self.i_step/lr_step)
@@ -148,12 +148,14 @@ class Seq2Seq(object):
         for i in range(self.epochs):
             try:
                 self.train_batch(sess, train_set,i)
-                if i and i% (self.epochs//100) == 0: # TODO : make this tunable by the user
+                if i and i% (self.epochs//1000) == 0: # TODO : make this tunable by the user
                     # save model to disk
                     saver.save(sess, self.ckpt_path + self.model_name + '.ckpt', global_step=i)
                     # evaluate to get validation loss
-                    val_loss, lr_rate = self.eval_batches(sess, valid_set, batch_size*32,i) # TODO : and this
-                    train_loss, lr_rate = self.eval_batches(sess,train_set,batch_size*32,i)
+                    print('finished saving')
+                    val_loss, lr_rate = self.eval_batches(sess, valid_set, 16,i) # TODO : and this
+                    print('finished val loss')
+                    train_loss, lr_rate = self.eval_batches(sess,train_set,16,i)
                     # print stats
                     print('\nModel saved to disk at iteration #{}'.format(i))
                     print('valid   loss : {0:.6f}'.format(val_loss))
