@@ -177,6 +177,6 @@ class Seq2Seq(object):
         #  (interchange batch_size and timesteps dimensions
         dec_op_v = np.array(dec_op_v).transpose([1,0,2])
         # return the index of item with highest probability
-        return dec_op_v, axis=2
+        return dec_op_v
 
 
