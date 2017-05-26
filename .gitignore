@@ -139,15 +139,19 @@ $RECYCLE.BIN/
 *.lnk
 
 #Large files and folders
-Deep_learning/notMNIST_large.tar.gz
-Deep_learning/notMNIST_small.tar.gz
-Deep_learning/notMNIST.pickle
-Deep_learning/notMNIST_large/
-Deep_learning/notMNIST_small/
-seq2seq_chatbot_projects/chatbot/data/
-seq2seq_chatbot_projects/tensorflow_chatbot-master_env0.12/working_dir/
-tensorflow_flower_codelab/
-seq2seq_chatbot_projects/practical_seq2seq-master/ckpt/
-seq2seq_chatbot_projects/practical_seq2seq-master/datasets/twitter/chat.txt
-seq2seq_chatbot_projects/practical_seq2seq-master_test/ckpt/
-seq2seq_chatbot_projects/practical_seq2seq-master_test/datasets/twitter/chat.txt
+Deep_learning_udc/notMNIST_large.tar.gz
+Deep_learning_udc/notMNIST_small.tar.gz
+Deep_learning_udc/notMNIST.pickle
+Deep_learning_udc/notMNIST_large/
+Deep_learning_udc/notMNIST_small/
+seq2seq_chatbot_projects/chatbot_denny/data/
+seq2seq_chatbot_projects/tensorflow_chatbot_vlogger_env0.12/working_dir/
+tensorflow_projects/tensorflow_flower_codelab/
+seq2seq_chatbot_projects/practical_seq2seq_cornell/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq_server/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq_test/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq_untouched/ckpt/
+seq2seq_chatbot_projects/practical_seq2seq_cornell/datasets/twitter/chat.txt
+seq2seq_chatbot_projects/practical_seq2seq_server/datasets/twitter/chat.txt
+seq2seq_chatbot_projects/practical_seq2seq_test/datasets/twitter/chat.txt
+seq2seq_chatbot_projects/practical_seq2seq_untouched/datasets/twitter/chat.txt
