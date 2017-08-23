@@ -4,7 +4,7 @@ Python projects spanning from deep learning to nlp in Tensorflow.
 
 ## Project descriptions
 
-I will briefly describe all of the projects/folders in this repo. Folders not mentioned are unfinished or obsolete.
+I will briefly describe all of the projects/folders in this repo. Folders not mentioned are unfinished or obsolete. You will need [Tensorflow](https://www.tensorflow.org/) in order to run scripts in deep_learning_udc, and tensorflow_projects folders.
 
 ### Deep_learning_udc folder
 
